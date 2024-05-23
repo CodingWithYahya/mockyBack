@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: mockyBackend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mockydb
+    username: mockyuser
+    password: mockypassword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    org:
+      springframework: DEBUG
