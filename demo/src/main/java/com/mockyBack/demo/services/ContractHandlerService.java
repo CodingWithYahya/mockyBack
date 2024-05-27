@@ -9,15 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ContractHandlerService {
+public class  ContractHandlerService {
     @Autowired
-    private ContractHandlerRepository contractHandlerRepository;
+    private ContractHandlerRepository contractRepository;
 
-    public List<ContractHandler> findAll() {
-        return contractHandlerRepository.findAll();
-    }
-
-    public ContractHandler save(ContractHandler contractHandler) {
-        return contractHandlerRepository.save(contractHandler);
+    public ContractHandler saveContract(ContractHandler contract) {
+        return contractRepository.save(contract);
     }
 }
