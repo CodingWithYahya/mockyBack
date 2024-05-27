@@ -19,7 +19,6 @@ RUN mvn clean package
 # RUN ./mvnw clean package -DskipTests
 
 # stage 2 - Create The Final Image
-
 # FROM openjdk11:alpine
 
 # FROM openjdk:11-jre-slim
