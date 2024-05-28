@@ -1,20 +1,13 @@
 package com.mockyBack.demo.entities;
-
-import lombok.*;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Contract")
-/*@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor*/
-public class ContractHandler {
+@Table(name = "DirtyData")
+public class StoreDataFromChapeau {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
+    private int idObjetFromCh;
 
     @Column(name = "type_client")
     private String typeClient;
@@ -381,10 +374,11 @@ public class ContractHandler {
     @Column(name = "conducteurSecondaireUpdated")
     private String conducteurSecondaireUpdated;
 
-    public ContractHandler() {
+    public StoreDataFromChapeau() {
     }
-    public ContractHandler(int id, String typeClient, String nomOrRaisonSociale, String prenom, String titreCivilite, String typePieceIdentite, String numeroPieceIdentite, String sexe, String situationFamiliale, String telephone, String email, String profession, String adresse, String dateNaissance, String idVilleAdresse, String numeroPermis, String dateObtentionPermis, String idPaysPermis, String numeroICE, String activite, String secteur, String gsm, String categoriePermis, String nombreEnfant, String clientConducteur, String numeroClient, String typeClientTiersSouscripteur, String codeIntermediaireTiersSouscripteur, String avecReductionSaharienne, String gsmConducteur, String numeroPieceIdentiteConducteur, String adresseConducteur, String telephoneConducteur, String emailConducteur, String nomOrRaisonSocialeConducteur, String prenomConducteur, String sexeConducteur, String situationFamilialeConducteur, String dateNaissanceConducteur, String idVilleAdresseConducteur, String idPaysPermisConducteur, String paysPermisConducteur, String professionConducteur, String titreCiviliteConducteur, String numeroPermisConducteur, String dateObtentionPermisConducteur, String categoriePermisConducteur, String typePieceIdentiteConducteur, String typeConducteur, String numeroClientConducteur, String typeClientTiersConducteur, String codeIntermediaireTiersConducteur, String gsmConducteurSecondaire, String numeroPieceIdentiteConducteurSecondaire, String adresseConducteurSecondaire, String telephoneConducteurSecondaire, String emailConducteurSecondaire, String nomOrRaisonSocialeConducteurSecondaire, String prenomConducteurSecondaire, String sexeConducteurSecondaire, String situationFamilialeConducteurSecondaire, String dateNaissanceConducteurSecondaire, String idVilleAdresseConducteurSecondaire, String idPaysPermisConducteurSecondaire, String professionConducteurSecondaire, String titreCiviliteConducteurSecondaire, String numeroPermisConducteurSecondaire, String dateObtentionPermisConducteurSecondaire, String categoriePermisConducteurSecondaire, String typePieceIdentiteConducteurSecondaire, String numeroClientConducteurSecondaire, String typeClientTiersConducteurSecondaire, String codeIntermediaireTiersConducteurSecondaire, String codeUsageVehicule, String idGenre, String typeImmatriculation, String immatriculation, String tauxCRM, String crmManuel, String crmFMSAR, String avecCrmManuel, String marque, String modele, String carburant, int puissanceFiscale, String nombrePlace, int nombreRemorquesTractes, String valeurANeuf, String valeurVenale, String vehiculeAgarage, int ptc, String referenceCRMFMSAR, String avecDelegation, String avecBaremeConventionnel, String numeroChassis, String numeroCadre, String numeroMoteur, String avecAutreImmatriculation, String avecModificationNarsa, String avecErreurNarsa, String avecAntivole, String natureContrat, String dateEffet, String heureEffet, String dateEcheance, String heureEcheance, String dateEvenement, String heureEvenement, String duree, int dureeContratEnJour, String dateEffetInitiale, String dateEtablissement, String modePaiement, String numeroAttestation, String formatAttestation, int typeContrat, String typeCouverture, String numeroAttestationProvisoire, int idIntermediaire, String typeEvenement, String idProduit, String numeroDevis, String souscripteurUpdated, String conducteurUpdated, String conducteurSecondaireUpdated) {
-        this.id = id;
+
+    public StoreDataFromChapeau(int idObjetFromCh, String typeClient, String nomOrRaisonSociale, String prenom, String titreCivilite, String typePieceIdentite, String numeroPieceIdentite, String sexe, String situationFamiliale, String telephone, String email, String profession, String adresse, String dateNaissance, String idVilleAdresse, String numeroPermis, String dateObtentionPermis, String idPaysPermis, String numeroICE, String activite, String secteur, String gsm, String categoriePermis, String nombreEnfant, String clientConducteur, String numeroClient, String typeClientTiersSouscripteur, String codeIntermediaireTiersSouscripteur, String avecReductionSaharienne, String gsmConducteur, String numeroPieceIdentiteConducteur, String adresseConducteur, String telephoneConducteur, String emailConducteur, String nomOrRaisonSocialeConducteur, String prenomConducteur, String sexeConducteur, String situationFamilialeConducteur, String dateNaissanceConducteur, String idVilleAdresseConducteur, String idPaysPermisConducteur, String paysPermisConducteur, String professionConducteur, String titreCiviliteConducteur, String numeroPermisConducteur, String dateObtentionPermisConducteur, String categoriePermisConducteur, String typePieceIdentiteConducteur, String typeConducteur, String numeroClientConducteur, String typeClientTiersConducteur, String codeIntermediaireTiersConducteur, String gsmConducteurSecondaire, String numeroPieceIdentiteConducteurSecondaire, String adresseConducteurSecondaire, String telephoneConducteurSecondaire, String emailConducteurSecondaire, String nomOrRaisonSocialeConducteurSecondaire, String prenomConducteurSecondaire, String sexeConducteurSecondaire, String situationFamilialeConducteurSecondaire, String dateNaissanceConducteurSecondaire, String idVilleAdresseConducteurSecondaire, String idPaysPermisConducteurSecondaire, String professionConducteurSecondaire, String titreCiviliteConducteurSecondaire, String numeroPermisConducteurSecondaire, String dateObtentionPermisConducteurSecondaire, String categoriePermisConducteurSecondaire, String typePieceIdentiteConducteurSecondaire, String numeroClientConducteurSecondaire, String typeClientTiersConducteurSecondaire, String codeIntermediaireTiersConducteurSecondaire, String codeUsageVehicule, String idGenre, String typeImmatriculation, String immatriculation, String tauxCRM, String crmManuel, String crmFMSAR, String avecCrmManuel, String marque, String modele, String carburant, int puissanceFiscale, String nombrePlace, int nombreRemorquesTractes, String valeurANeuf, String valeurVenale, String vehiculeAgarage, int ptc, String referenceCRMFMSAR, String avecDelegation, String avecBaremeConventionnel, String numeroChassis, String numeroCadre, String numeroMoteur, String avecAutreImmatriculation, String avecModificationNarsa, String avecErreurNarsa, String avecAntivole, String natureContrat, String dateEffet, String heureEffet, String dateEcheance, String heureEcheance, String dateEvenement, String heureEvenement, String duree, int dureeContratEnJour, String dateEffetInitiale, String dateEtablissement, String modePaiement, String numeroAttestation, String formatAttestation, int typeContrat, String typeCouverture, String numeroAttestationProvisoire, int idIntermediaire, String typeEvenement, String idProduit, String numeroDevis, String souscripteurUpdated, String conducteurUpdated, String conducteurSecondaireUpdated) {
+        this.idObjetFromCh = idObjetFromCh;
         this.typeClient = typeClient;
         this.nomOrRaisonSociale = nomOrRaisonSociale;
         this.prenom = prenom;
@@ -511,12 +505,12 @@ public class ContractHandler {
         this.conducteurSecondaireUpdated = conducteurSecondaireUpdated;
     }
 
-    public int getId() {
-        return id;
+    public int getIdObjetFromCh() {
+        return idObjetFromCh;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdObjetFromCh(int idObjetFromCh) {
+        this.idObjetFromCh = idObjetFromCh;
     }
 
     public String getTypeClient() {
