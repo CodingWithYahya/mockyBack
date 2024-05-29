@@ -1,33 +1,27 @@
 package com.mockyBack.demo.services;
 
-import com.mockyBack.demo.entities.DefaultPlans;
-import com.mockyBack.demo.repositories.DefaultPlansRepository;
+import com.mockyBack.demo.entities.ChapeauPayload;
+import com.mockyBack.demo.repositories.TarifsRCRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ResourceUtils;
-import org.springframework.web.multipart.MultipartFile;
+import com.mockyBack.demo.entities.TarifsRC;
 
 import javax.annotation.PostConstruct;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 
 
 @Service
-public class DefaultPlansService {
+public class TarifsRCService {
 
     @Autowired
-    private DefaultPlansRepository defaultPlansRepository;
+    private TarifsRCRepository tarifsRCRepository;
     @Autowired
     private CSVReaderService csvReaderService;
 
-    public void saveAll(List<DefaultPlans> defaultPlansList) {
-        defaultPlansRepository.saveAll(defaultPlansList);
-    }
-
-    public List<DefaultPlans> findAll() {
-        return defaultPlansRepository.findAll();
+    public void saveAll(List<TarifsRC> tarifsRCList) {
+        tarifsRCRepository.saveAll(tarifsRCList);
     }
 
     public void importFromCSV() {
@@ -37,15 +31,45 @@ public class DefaultPlansService {
             return;
         }
 
-        List<DefaultPlans> defaultPlansList = csvReaderService.readCSV(inputStream);
-        saveAll(defaultPlansList);
+        List<TarifsRC> tarifsRCList = csvReaderService.readCSV(inputStream);
+        saveAll(tarifsRCList);
     }
-
     @PostConstruct
-    public void init() {
+    public void init(){
         importFromCSV();
     }
-}
+
+
+    public double calculatePrime(ChapeauPayload data){
+        List<TarifsRC> plans = tarifsRCRepository.findAll();
+        int codeUsage = Integer.parseInt(data.getCodeUsageVehicule());
+        int carburant = Integer.parseInt(data.getCarburant());
+        System.out.println(data.getPtc() + "PTC   :");
+        for (TarifsRC plan : plans) {
+            System.out.println(data);
+            if (plan.getCodeUsageVehiculeMin() <= codeUsage && codeUsage<=plan.getCodeUsageVehiculeMax()
+            && plan.getCarburantMin() <= carburant &&
+                    carburant <= plan.getCarburantMax() &&
+                    plan.getPuissanceFiscaleMin() <= data.getPuissanceFiscale() &&
+                    data.getPuissanceFiscale() <= plan.getPuissanceFiscaleMax() &&
+                    plan.getPtcMin() <= data.getPtc() &&
+                    data.getPtc() <= plan.getPtcMax()
+            ){
+                double forfait = plan.getForfait();
+                if (data.getNombreRemorquesTractes() == 1) {
+                    forfait += forfait * plan.getTauxMajorationRemorque() / 100;
+                }
+                return forfait;
+            }
+        }
+        return 0.0; // Return 0 if no match is found
+    }
+    }
+
+
+
+
+
 
     /*public void importFromCSV() {
         try {

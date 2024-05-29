@@ -1,31 +1,31 @@
 package com.mockyBack.demo.services;
 
-import com.mockyBack.demo.entities.StoreDataFromChapeau;
-import com.mockyBack.demo.repositories.StoreDataFromChapeauRepository;
+import com.mockyBack.demo.entities.ChapeauPayload;
+import com.mockyBack.demo.repositories.ChapeauPayloadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class StoreDataFromChapeauService {
+public class ChapeauPayloadService {
     @Autowired
-    private StoreDataFromChapeauRepository repository;
+    private ChapeauPayloadRepository repository;
 
-    public StoreDataFromChapeau create(StoreDataFromChapeau data) {
+    public ChapeauPayload create(ChapeauPayload data) {
         return repository.save(data);
     }
 
-    public List<StoreDataFromChapeau> findAll() {
+    public List<ChapeauPayload> findAll() {
         return repository.findAll();
     }
 
-    public StoreDataFromChapeau findById(int id) {
+    public ChapeauPayload findById(int id) {
         return repository.findById(id).orElse(null);
     }
 
-    public StoreDataFromChapeau update(int id, StoreDataFromChapeau data) {
-        StoreDataFromChapeau existingData = repository.findById(id).orElse(null);
+    public ChapeauPayload update(int id, ChapeauPayload data) {
+        ChapeauPayload existingData = repository.findById(id).orElse(null);
         if (existingData != null) {
             data.setIdObjetFromCh(id);
             return repository.save(data);
@@ -37,9 +37,9 @@ public class StoreDataFromChapeauService {
         repository.deleteById(id);
     }
 
-    public List<StoreDataFromChapeau> getCleanData() {
-        List<StoreDataFromChapeau> dataList = repository.findAll();
-        for (StoreDataFromChapeau data : dataList) {
+    public List<ChapeauPayload> getCleanData() {
+        List<ChapeauPayload> dataList = repository.findAll();
+        for (ChapeauPayload data : dataList) {
             if (data.getPtc() == 0) {
                 data.setPtc(0);
             }
@@ -48,7 +48,7 @@ public class StoreDataFromChapeauService {
         return dataList;
     }
 
-    public double calculatePrice(StoreDataFromChapeau data) {
+    public double calculatePrice(ChapeauPayload data) {
         double basePrice = 1000.0;
 
         if ("92".equals(data.getCodeUsageVehicule())) {
@@ -72,7 +72,7 @@ public class StoreDataFromChapeauService {
     }
 
     // Méthode pour inspecter le payload
-    public Object inspectPayload(StoreDataFromChapeau payload) {
+    public Object inspectPayload(ChapeauPayload payload) {
         System.out.println(
                 "\n" + "typeClient: " + payload.getTypeClient() + "\n" +
                         "nomOrRaisonSociale: " + payload.getNomOrRaisonSociale() + "\n" +

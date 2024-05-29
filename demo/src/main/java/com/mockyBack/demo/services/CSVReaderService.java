@@ -1,6 +1,6 @@
 package com.mockyBack.demo.services;
 
-import com.mockyBack.demo.entities.DefaultPlans;
+import com.mockyBack.demo.entities.TarifsRC;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
@@ -13,38 +13,38 @@ import com.opencsv.CSVReaderBuilder;
 @Service
 public class CSVReaderService {
 
-    public List<DefaultPlans> readCSV(InputStream inputStream) {
-        List<DefaultPlans> defaultPlansList = new ArrayList<>();
+    public List<TarifsRC> readCSV(InputStream inputStream) {
+        List<TarifsRC> tarifsRCList = new ArrayList<>();
 
         try (CSVReader csvReader = new CSVReaderBuilder(new InputStreamReader(inputStream)).build()) {
             String[] data;
             // Skip the header line
             csvReader.readNext();
             while ((data = csvReader.readNext()) != null) {
-                DefaultPlans defaultPlans = new DefaultPlans();
-                defaultPlans.setForfait(Double.parseDouble(data[0].replace("\"", "").replace(",", ".").trim()));
-                defaultPlans.setForfaitNrePlace(Integer.parseInt(data[1].replace("\"", "").trim()));
-                defaultPlans.setTauxMajorationRemorque(Double.parseDouble(data[2].replace("\"", "").replace(",", ".").trim()));
-                defaultPlans.setCodeUsageVehiculeMin(Integer.parseInt(data[3].replace("\"", "").trim()));
-                defaultPlans.setCodeUsageVehiculeMax(Integer.parseInt(data[4].replace("\"", "").trim()));
-                defaultPlans.setCarburantMin(Integer.parseInt(data[5].replace("\"", "").trim()));
-                defaultPlans.setCarburantMax(Integer.parseInt(data[6].replace("\"", "").trim()));
-                defaultPlans.setPuissanceFiscaleMin(Integer.parseInt(data[7].replace("\"", "").trim()));
-                defaultPlans.setPuissanceFiscaleMax(Integer.parseInt(data[8].replace("\"", "").trim()));
-                defaultPlans.setPtcMin((int) Double.parseDouble(data[9].replace("\"", "").replace(",", ".").trim()));
-                defaultPlans.setPtcMax((int) Double.parseDouble(data[10].replace("\"", "").replace(",", ".").trim()));
-                defaultPlans.setAvecRemorque(Integer.parseInt(data[11].replace("\"", "").replace(",", ".").trim()));
+                TarifsRC tarifsRC = new TarifsRC();
+                tarifsRC.setForfait(Double.parseDouble(data[0].replace("\"", "").replace(",", ".").trim()));
+                tarifsRC.setForfaitNrePlace(Integer.parseInt(data[1].replace("\"", "").trim()));
+                tarifsRC.setTauxMajorationRemorque(Double.parseDouble(data[2].replace("\"", "").replace(",", ".").trim()));
+                tarifsRC.setCodeUsageVehiculeMin(Integer.parseInt(data[3].replace("\"", "").trim()));
+                tarifsRC.setCodeUsageVehiculeMax(Integer.parseInt(data[4].replace("\"", "").trim()));
+                tarifsRC.setCarburantMin(Integer.parseInt(data[5].replace("\"", "").trim()));
+                tarifsRC.setCarburantMax(Integer.parseInt(data[6].replace("\"", "").trim()));
+                tarifsRC.setPuissanceFiscaleMin(Integer.parseInt(data[7].replace("\"", "").trim()));
+                tarifsRC.setPuissanceFiscaleMax(Integer.parseInt(data[8].replace("\"", "").trim()));
+                tarifsRC.setPtcMin((int) Double.parseDouble(data[9].replace("\"", "").replace(",", ".").trim()));
+                tarifsRC.setPtcMax((int) Double.parseDouble(data[10].replace("\"", "").replace(",", ".").trim()));
+                tarifsRC.setAvecRemorque(Integer.parseInt(data[11].replace("\"", "").replace(",", ".").trim()));
                 //defaultPlans.setAvecRemorque(Integer.parseInt(data[11].replace("\"", "").trim()) == 1);
                 // ** boolean avecRemorque = Integer.parseInt(data[11].replace("\"", "").trim()) == 1;
                 // ** defaultPlans.setAvecRemorque(avecRemorque);
                 //defaultPlans.setAvecRemorque(Boolean.parseBoolean(data[11].replace("\"", "").trim()) ? 1 : 0);
 
-                defaultPlansList.add(defaultPlans);
+                tarifsRCList.add(tarifsRC);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return defaultPlansList;
+        return tarifsRCList;
     }
 
     /*

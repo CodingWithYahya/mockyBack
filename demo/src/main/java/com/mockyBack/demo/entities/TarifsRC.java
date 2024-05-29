@@ -4,8 +4,8 @@ package com.mockyBack.demo.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "default_plans")
-public class DefaultPlans {
+@Table(name = "tarifs_rc")
+public class TarifsRC {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -46,10 +46,10 @@ public class DefaultPlans {
     @Column(name = "avec_remorque")
     private int avecRemorque;
 
-    public DefaultPlans() {
+    public TarifsRC() {
     }
 
-    public DefaultPlans(double forfait, int forfaitNrePlace, double tauxMajorationRemorque, int codeUsageVehiculeMin, int codeUsageVehiculeMax, int carburantMin, int carburantMax, int puissanceFiscaleMin, int puissanceFiscaleMax, int ptcMax, int ptcMin, int avecRemorque) {
+    public TarifsRC(double forfait, int forfaitNrePlace, double tauxMajorationRemorque, int codeUsageVehiculeMin, int codeUsageVehiculeMax, int carburantMin, int carburantMax, int puissanceFiscaleMin, int puissanceFiscaleMax, int ptcMax, int ptcMin, int avecRemorque) {
         this.forfait = forfait;
         this.forfaitNrePlace = forfaitNrePlace;
         this.tauxMajorationRemorque = tauxMajorationRemorque;
@@ -64,7 +64,7 @@ public class DefaultPlans {
         this.avecRemorque = avecRemorque;
     }
 
-    public DefaultPlans(Long id, double forfait, int forfaitNrePlace, double tauxMajorationRemorque, int codeUsageVehiculeMin, int codeUsageVehiculeMax, int carburantMin, int carburantMax, int puissanceFiscaleMin, int puissanceFiscaleMax, int ptcMax, int ptcMin, int avecRemorque) {
+    public TarifsRC(Long id, double forfait, int forfaitNrePlace, double tauxMajorationRemorque, int codeUsageVehiculeMin, int codeUsageVehiculeMax, int carburantMin, int carburantMax, int puissanceFiscaleMin, int puissanceFiscaleMax, int ptcMax, int ptcMin, int avecRemorque) {
         this.id = id;
         this.forfait = forfait;
         this.forfaitNrePlace = forfaitNrePlace;

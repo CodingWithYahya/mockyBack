@@ -1,8 +1,8 @@
 package com.mockyBack.demo.controllers;
 
 
-import com.mockyBack.demo.entities.StoreDataFromChapeau;
-import com.mockyBack.demo.services.StoreDataFromChapeauService;
+import com.mockyBack.demo.entities.ChapeauPayload;
+import com.mockyBack.demo.services.ChapeauPayloadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,29 +10,29 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/validation/api/contractHandler")
-public class StoreDataFromChapeauController {
+@RequestMapping("/disasterRecovery/api")
+public class ChapeauPayloadController {
 
     @Autowired
-    private StoreDataFromChapeauService service;
+    private ChapeauPayloadService service;
 
     @PostMapping
-    public StoreDataFromChapeau create(@RequestBody StoreDataFromChapeau data) {
+    public ChapeauPayload create(@RequestBody ChapeauPayload data) {
         return service.create(data);
     }
 
     @GetMapping
-    public List<StoreDataFromChapeau> findAll() {
+    public List<ChapeauPayload> findAll() {
         return service.findAll();
     }
 
     @GetMapping("/{id}")
-    public StoreDataFromChapeau findById(@PathVariable int id) {
+    public ChapeauPayload findById(@PathVariable int id) {
         return service.findById(id);
     }
 
     @PutMapping("/{id}")
-    public StoreDataFromChapeau update(@PathVariable int id, @RequestBody StoreDataFromChapeau data) {
+    public ChapeauPayload update(@PathVariable int id, @RequestBody ChapeauPayload data) {
         return service.update(id, data);
     }
 
@@ -42,17 +42,17 @@ public class StoreDataFromChapeauController {
     }
 
     @GetMapping("/allClean")
-    public List<StoreDataFromChapeau> getCleanData() {
+    public List<ChapeauPayload> getCleanData() {
         return service.getCleanData();
     }
 
     @GetMapping("/calculatePrice")
-    public double calculatePrice(@RequestBody StoreDataFromChapeau data) {
+    public double calculatePrice(@RequestBody ChapeauPayload data) {
         return service.calculatePrice(data);
     }
 
     @PostMapping("/inspectPayload")
-    public ResponseEntity<Object> inspectPayload(@RequestBody StoreDataFromChapeau payload) {
+    public ResponseEntity<Object> inspectPayload(@RequestBody ChapeauPayload payload) {
         return ResponseEntity.ok(service.inspectPayload(payload));
     }
 }
