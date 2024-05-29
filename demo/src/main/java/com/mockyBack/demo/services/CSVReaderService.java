@@ -31,14 +31,13 @@ public class CSVReaderService {
                 defaultPlans.setCarburantMax(Integer.parseInt(data[6].replace("\"", "").trim()));
                 defaultPlans.setPuissanceFiscaleMin(Integer.parseInt(data[7].replace("\"", "").trim()));
                 defaultPlans.setPuissanceFiscaleMax(Integer.parseInt(data[8].replace("\"", "").trim()));
-                defaultPlans.setPtcMax((int) Double.parseDouble(data[9].replace("\"", "").replace(",", ".").trim()));
-                defaultPlans.setPtcMin((int) Double.parseDouble(data[10].replace("\"", "").replace(",", ".").trim()));
-                defaultPlans.setAvecRemorque(Integer.parseInt(data[10].replace("\"", "").replace(",", ".").trim()));
+                defaultPlans.setPtcMin((int) Double.parseDouble(data[9].replace("\"", "").replace(",", ".").trim()));
+                defaultPlans.setPtcMax((int) Double.parseDouble(data[10].replace("\"", "").replace(",", ".").trim()));
+                defaultPlans.setAvecRemorque(Integer.parseInt(data[11].replace("\"", "").replace(",", ".").trim()));
                 //defaultPlans.setAvecRemorque(Integer.parseInt(data[11].replace("\"", "").trim()) == 1);
                 // ** boolean avecRemorque = Integer.parseInt(data[11].replace("\"", "").trim()) == 1;
                 // ** defaultPlans.setAvecRemorque(avecRemorque);
                 //defaultPlans.setAvecRemorque(Boolean.parseBoolean(data[11].replace("\"", "").trim()) ? 1 : 0);
-
 
                 defaultPlansList.add(defaultPlans);
             }
