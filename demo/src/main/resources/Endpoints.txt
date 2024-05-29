@@ -1,0 +1,13 @@
+Tarification - DefaultPlansControllers :
+
+POST : /api/default-plans/upload
+
+Payload - StoreDataFromChapeauxControllers :
+
+POST : /validation/api/contractHandler
+GET : /validation/api/contractHandler
+GET : /validation/api/contractHandler/{id}
+PUT : /validation/api/contractHandler/{id}
+GET : /validation/api/contractHandler/allClean
+GET : /validation/api/contractHandler/calculatePrice
+POST : /validation/api/contractHandler/inspectPayload

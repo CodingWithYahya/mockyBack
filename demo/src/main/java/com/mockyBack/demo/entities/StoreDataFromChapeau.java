@@ -4,7 +4,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "DirtyData")
 public class StoreDataFromChapeau {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idObjetFromCh;

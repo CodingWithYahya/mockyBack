@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.PostConstruct;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,10 @@ public class DefaultPlansService {
         defaultPlansRepository.saveAll(defaultPlansList);
     }
 
+    public List<DefaultPlans> findAll() {
+        return defaultPlansRepository.findAll();
+    }
+
     public void importFromCSV() {
         InputStream inputStream = getClass().getResourceAsStream("/TarificationRC.csv");
         if (inputStream == null) {
@@ -35,7 +40,12 @@ public class DefaultPlansService {
         List<DefaultPlans> defaultPlansList = csvReaderService.readCSV(inputStream);
         saveAll(defaultPlansList);
     }
+
+    @PostConstruct
+    public void init() {
+        importFromCSV();
     }
+}
 
     /*public void importFromCSV() {
         try {

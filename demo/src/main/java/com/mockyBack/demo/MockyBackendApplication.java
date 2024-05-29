@@ -15,8 +15,4 @@ public class MockyBackendApplication {
 		SpringApplication.run(MockyBackendApplication.class, args);
 	}
 
-	/*CSVReader csvReader = new CSVReader();
-	InputStream inputStream = getClass().getResourceAsStream("/TarificationRC.csv");
-	List<DefaultPlans> defaultPlansList = csvReader.readCSV(inputStream);*/
-
 }

@@ -51,9 +51,8 @@ public class StoreDataFromChapeauController {
         return service.calculatePrice(data);
     }
 
-    @PostMapping("/savePayload")
+    @PostMapping("/inspectPayload")
     public ResponseEntity<Object> inspectPayload(@RequestBody StoreDataFromChapeau payload) {
-        service.create(payload); //
         return ResponseEntity.ok(service.inspectPayload(payload));
     }
 }
