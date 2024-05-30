@@ -17,6 +17,9 @@ public class TarifsRCController {
     @Autowired
     private TarifsRCService tarifsRCService;
 
+    @GetMapping
+    public List<TarifsRC> findAll() {return tarifsRCService.findAll();}
+
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile() {
        tarifsRCService.importFromCSV();
@@ -27,5 +30,10 @@ public class TarifsRCController {
     public ResponseEntity<Object> calculatePrime(@RequestBody ChapeauPayload payload){
         tarifsRCService.calculatePrime(payload);
         return ResponseEntity.ok(tarifsRCService.calculatePrime(payload));
+    }
+
+    @PostMapping("/calculTarif")
+    public double calculateTarif(@RequestBody ChapeauPayload data) {
+        return tarifsRCService.calculateTarif(data);
     }
 }

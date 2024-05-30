@@ -1,6 +1,7 @@
 package com.mockyBack.demo.services;
 
 import com.mockyBack.demo.entities.ChapeauPayload;
+import com.mockyBack.demo.entities.TarifsRC;
 import com.mockyBack.demo.repositories.ChapeauPayloadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,31 +48,15 @@ public class ChapeauPayloadService {
         }
         return dataList;
     }
-
-    public double calculatePrice(ChapeauPayload data) {
-        double basePrice = 1000.0;
-
-        if ("92".equals(data.getCodeUsageVehicule())) {
-            basePrice += 500.0;
-        }
-        if (data.getPtc() == 0) {
-            basePrice += 200.0;
-        }
-        // Nouveaux critères
-        if (data.getPuissanceFiscale() >= 6 && data.getPuissanceFiscale() <= 12) {
-            basePrice += 300.0; // Par exemple, ajouter 300.0 si la puissance fiscale est entre 6 et 12
-        }
-        if (data.getPtc() >= 250 && data.getPtc() <= 999000) {
-            basePrice += 400.0; // Par exemple, ajouter 400.0 si le PTC est entre 250 et 999000
-        }
-        // Vérifier si c'est avec ou sans remorque nombreRemorquesTractes
-        if (data.getNombreRemorquesTractes()!=0) {
-            basePrice += 100.0; // Par exemple, ajouter 100.0 s'il y a une remorque
-        }
-        return basePrice;
+    public ChapeauPayload getCleanPayload(ChapeauPayload data) {
+            if (data.getPtc() == 0) {
+                data.setPtc(0);
+            }
+            // cleani les champs lakhrin
+        return data;
     }
 
-    // Méthode pour inspecter le payload
+
     public Object inspectPayload(ChapeauPayload payload) {
         System.out.println(
                 "\n" + "typeClient: " + payload.getTypeClient() + "\n" +

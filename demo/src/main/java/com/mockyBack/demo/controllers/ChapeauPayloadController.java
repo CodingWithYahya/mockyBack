@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/disasterRecovery/api")
+@RequestMapping("/api/disasterRecovery/handlingPayload")
 public class ChapeauPayloadController {
 
     @Autowired
@@ -44,11 +44,6 @@ public class ChapeauPayloadController {
     @GetMapping("/allClean")
     public List<ChapeauPayload> getCleanData() {
         return service.getCleanData();
-    }
-
-    @GetMapping("/calculatePrice")
-    public double calculatePrice(@RequestBody ChapeauPayload data) {
-        return service.calculatePrice(data);
     }
 
     @PostMapping("/inspectPayload")

@@ -1,15 +1,17 @@
-Tarification - DefaultPlansControllers :
 
-POST : /api/default-plans/upload
+TarifsRC - TarifsRCController :
 
-Payload - StoreDataFromChapeauxControllers :
+GET : /api/disasterRecovery/tarification
+POST : /api/disasterRecovery/tarification/upload
+POST : /api/disasterRecovery/tarification/calculate
+POST : /api/disasterRecovery/tarification/calculTarif (new)
 
-POST : /validation/api/contractHandler
-GET : /validation/api/contractHandler
-GET : /validation/api/contractHandler/{id}
-PUT : /validation/api/contractHandler/{id}
-GET : /validation/api/contractHandler/allClean
-GET : /validation/api/contractHandler/calculatePrice
-POST : /validation/api/contractHandler/inspectPayload
+ChapeauPayload - ChapeauPayloadController :
 
-
+POST : /api/disasterRecovery/handlingPayload
+GET : /api/disasterRecovery/handlingPayload
+GET : /api/disasterRecovery/handlingPayload/{id}
+PUT : /api/disasterRecovery/handlingPayload/{id}
+DELETE : /api/disasterRecovery/handlingPayload/{id}
+GET : /api/disasterRecovery/handlingPayload/allClean
+POST : /api/disasterRecovery/handlingPayload/inspectPayload
