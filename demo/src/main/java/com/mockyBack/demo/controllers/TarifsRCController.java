@@ -36,4 +36,9 @@ public class TarifsRCController {
     public double calculateTarif(@RequestBody ChapeauPayload data) {
         return tarifsRCService.calculateTarif(data);
     }
+    @PostMapping("/chapeaux")
+    public ResponseEntity<String[]> chapeau (@RequestBody ChapeauPayload data) {
+        return ResponseEntity.ok(new String[0]);
+    }
+
 }
