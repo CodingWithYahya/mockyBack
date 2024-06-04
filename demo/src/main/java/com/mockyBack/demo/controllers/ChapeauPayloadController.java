@@ -50,4 +50,5 @@ public class ChapeauPayloadController {
     public ResponseEntity<Object> inspectPayload(@RequestBody ChapeauPayload payload) {
         return ResponseEntity.ok(service.inspectPayload(payload));
     }
+
 }
