@@ -1,5 +1,6 @@
 package com.mockyBack.demo.services;
 
+import com.mockyBack.demo.entities.Garantie;
 import com.mockyBack.demo.entities.TarifsRC;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,46 @@ import com.opencsv.CSVReaderBuilder;
 
 @Service
 public class CSVReaderService {
+
+//    public List<Garantie> readCSVForGarantie(InputStream inputStream) {
+//        List<Garantie> garanties = new ArrayList<>();
+//        try (CSVReader csvReader = new CSVReaderBuilder(new InputStreamReader(inputStream)).build()) {
+//            String[] data;
+//            // Skip the header line
+//            csvReader.readNext();
+//            while ((data = csvReader.readNext()) != null) {
+//                Garantie garantie = new Garantie();
+//                garantie.setLibelle(data[0]);
+//                garantie.setCodeGarantie(data[1]);
+//                garantie.setPrimeAnnuelle(Double.parseDouble(data[2]));
+//                garantie.setPrimeAuProrata(Double.parseDouble(data[3]));
+//                garantie.setIdOptionGarantie(data[4].equals("null") ? null : data[4]);
+//                garantie.setIncluded(Boolean.parseBoolean(data[5]));
+//                garantie.setObligatoire(Boolean.parseBoolean(data[6]));
+//                garantie.setOptionnelle(Boolean.parseBoolean(data[7]));
+//                garantie.setOrdre(Integer.parseInt(data[8]));
+//                garantie.setTaxeGarantieProrata(Double.parseDouble(data[9]));
+//                garantie.setTaxeParafiscalProrata(Double.parseDouble(data[10]));
+//                garantie.setTaxeGarantieAnnuelle(Double.parseDouble(data[11]));
+//                garantie.setTaxeParafiscalAnnuelle(Double.parseDouble(data[12]));
+//                garantie.setCommission(Double.parseDouble(data[13]));
+//                garantie.setTaxeCommission(Double.parseDouble(data[14]));
+//                garantie.setCommissionProrata(Double.parseDouble(data[15]));
+//                garantie.setTaxeCommissionProrata(Double.parseDouble(data[16]));
+//                garantie.setCommissionAnnuelle(Double.parseDouble(data[17]));
+//                garantie.setTaxeCommissionAnnuelle(Double.parseDouble(data[18]));
+//                garantie.setTaxeGarantie(Double.parseDouble(data[19]));
+//                garantie.setTaxeParafiscal(Double.parseDouble(data[20]));
+//                garantie.setMajorationBL(Double.parseDouble(data[21]));
+//                garantie.setEtat(data[22]);
+//
+//                garanties.add(garantie);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return garanties;
+//    }
 
     public List<TarifsRC> readCSV(InputStream inputStream) {
         List<TarifsRC> tarifsRCList = new ArrayList<>();
@@ -46,108 +87,4 @@ public class CSVReaderService {
         }
         return tarifsRCList;
     }
-
-    /*
-    public List<DefaultPlans> readCSV(InputStream inputStream) {
-        List<DefaultPlans> defaultPlansList = new ArrayList<>();
-
-        try (CSVReader csvReader = new CSVReaderBuilder(new InputStreamReader(inputStream)).build()) {
-            String[] data;
-            // Skip the header line
-            csvReader.readNext();
-            while ((data = csvReader.readNext()) != null) {
-                DefaultPlans defaultPlans = new DefaultPlans();
-                defaultPlans.setForfait(Double.parseDouble(data[0].replace("\"", "").trim()));
-                defaultPlans.setForfaitNrePlace(Integer.parseInt(data[1].replace("\"", "").trim()));
-                defaultPlans.setTauxMajorationRemorque(Double.parseDouble(data[2].replace("\"", "").trim()));
-                defaultPlans.setCodeUsageVehiculeMin(Integer.parseInt(data[3].replace("\"", "").trim()));
-                defaultPlans.setCodeUsageVehiculeMax(Integer.parseInt(data[4].replace("\"", "").trim()));
-                defaultPlans.setCarburantMin(Integer.parseInt(data[5].replace("\"", "").trim()));
-                defaultPlans.setCarburantMax(Integer.parseInt(data[6].replace("\"", "").trim()));
-                defaultPlans.setPuissanceFiscaleMin(Integer.parseInt(data[7].replace("\"", "").trim()));
-                defaultPlans.setPuissanceFiscaleMax(Integer.parseInt(data[8].replace("\"", "").trim()));
-                defaultPlans.setPtcMax(Double.parseDouble(data[9].replace("\"", "").trim()));
-                defaultPlans.setPtcMin(Double.parseDouble(data[10].replace("\"", "").trim()));
-                defaultPlans.setAvecRemorque(Integer.parseInt(data[11].replace("\"", "").trim()) == 1);
-
-                defaultPlansList.add(defaultPlans);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return defaultPlansList;
-    }
-    */
-
-    /*public List<DefaultPlans> readCSV(InputStream inputStream) {
-        List<DefaultPlans> defaultPlansList = new ArrayList<>();
-        String line;
-        String delimiter = ",";
-
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
-            // Skip the header line
-            br.readLine();
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(delimiter);
-
-                // Remove double quotes from values
-                for (int i = 0; i < data.length; i++) {
-                    data[i] = data[i].replace("\"", "").trim();
-                }
-
-                DefaultPlans defaultPlans = new DefaultPlans();
-                defaultPlans.setForfait(Double.parseDouble(data[0]));
-                defaultPlans.setForfaitNrePlace(Integer.parseInt(data[1]));
-                defaultPlans.setTauxMajorationRemorque(Double.parseDouble(data[2]));
-                defaultPlans.setCodeUsageVehiculeMin(Integer.parseInt(data[3]));
-                defaultPlans.setCodeUsageVehiculeMax(Integer.parseInt(data[4]));
-                defaultPlans.setCarburantMin(Integer.parseInt(data[5]));
-                defaultPlans.setCarburantMax(Integer.parseInt(data[6]));
-                defaultPlans.setPuissanceFiscaleMin(Integer.parseInt(data[7]));
-                defaultPlans.setPuissanceFiscaleMax(Integer.parseInt(data[8]));
-                defaultPlans.setPtcMax(Double.parseDouble(data[9]));
-                defaultPlans.setPtcMin(Double.parseDouble(data[10]));
-                defaultPlans.setAvecRemorque(Integer.parseInt(data[11]) == 1);
-
-                defaultPlansList.add(defaultPlans);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return defaultPlansList;
-    }*/
-
-    /*
-    public List<DefaultPlans> readCSV(InputStream inputStream) {
-        List<DefaultPlans> defaultPlansList = new ArrayList<>();
-        String line = "";
-        String delimiter = ",";
-
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
-            // Skip the header line
-            br.readLine();
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(delimiter);
-                DefaultPlans defaultPlans = new DefaultPlans();
-                defaultPlans.setForfait(Double.parseDouble(data[0]));
-                defaultPlans.setForfaitNrePlace(Integer.parseInt(data[1]));
-                defaultPlans.setTauxMajorationRemorque(Double.parseDouble(data[2]));
-                defaultPlans.setCodeUsageVehiculeMin(Integer.parseInt(data[3]));
-                defaultPlans.setCodeUsageVehiculeMax(Integer.parseInt(data[4]));
-                defaultPlans.setCarburantMin(Integer.parseInt(data[5]));
-                defaultPlans.setCarburantMax(Integer.parseInt(data[6]));
-                defaultPlans.setPuissanceFiscaleMin(Integer.parseInt(data[7]));
-                defaultPlans.setPuissanceFiscaleMax(Integer.parseInt(data[8]));
-                defaultPlans.setPtcMax(Double.parseDouble(data[9]));
-                defaultPlans.setPtcMin(Double.parseDouble(data[10]));
-                defaultPlans.setAvecRemorque(Boolean.parseBoolean(data[11]));
-
-                defaultPlansList.add(defaultPlans);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return defaultPlansList;
-    }
-    */
 }

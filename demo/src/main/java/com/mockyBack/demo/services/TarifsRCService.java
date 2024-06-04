@@ -49,7 +49,7 @@ public class TarifsRCService {
         return prime != null ? prime : 0.0;
     }
 
-    public double calculatePrime(ChapeauPayload data){
+    /*public double calculatePrime(ChapeauPayload data){
         //List<TarifsRC> plans = chapeauPayloadService.getCleanData();
         List<TarifsRC> plans = tarifsRCRepository.findAll();
         int codeUsage = Integer.parseInt(data.getCodeUsageVehicule());
@@ -73,5 +73,5 @@ public class TarifsRCService {
             }
         }
         return 0.0;
-    }
+    }*/
 }

@@ -26,16 +26,17 @@ public class TarifsRCController {
         return ResponseEntity.ok("File uploaded and data saved successfully");
     }
 
-    @PostMapping("/calculate")
+    /*@PostMapping("/calculate")
     public ResponseEntity<Object> calculatePrime(@RequestBody ChapeauPayload payload){
         tarifsRCService.calculatePrime(payload);
         return ResponseEntity.ok(tarifsRCService.calculatePrime(payload));
-    }
+    }*/
 
-    @PostMapping("/calculTarif")
+    @PostMapping("/calculerTarif")
     public double calculateTarif(@RequestBody ChapeauPayload data) {
         return tarifsRCService.calculateTarif(data);
     }
+
     @PostMapping("/chapeaux")
     public ResponseEntity<String[]> chapeau (@RequestBody ChapeauPayload data) {
         return ResponseEntity.ok(new String[0]);
