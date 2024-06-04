@@ -44,7 +44,7 @@ public class TarifsRCController {
         return ResponseEntity.ok(new String[0]);
     }
     @PostMapping("/offres")
-    public ResponseEntity<Object>  offre(@RequestBody ChapeauPayload payload){
+    public ResponseEntity<Offre[]>  offre(@RequestBody ChapeauPayload payload){
         Offre offer = new Offre();
         offer.setId(237);
         offer.setLibelle("RC");
@@ -128,7 +128,7 @@ public class TarifsRCController {
         garantie2.setMajorationBL(0.0);
         garantie2.setEtat("0");
 
-        Garantie garantie3 = new Garantie();
+        /*Garantie garantie3 = new Garantie();
         garantie3.setLibelle("Défense et Recours");
         garantie3.setCapitalGarantie("10000");
         garantie3.setCodeGarantie("6");
@@ -146,7 +146,7 @@ public class TarifsRCController {
         garantie4.setObligatoire(false);
         garantie4.setOptionnelle(true);
         garantie4.setMinimal(false);
-        garantie4.setOrdre(10);
+        garantie4.setOrdre(10);*/
 
         Garantie garantie5 = new Garantie();
         garantie5.setLibelle("Assistance");
@@ -173,7 +173,7 @@ public class TarifsRCController {
         garantie5.setMajorationBL(0.0);
         garantie5.setEtat("0");
 
-        Garantie garantie6 = new Garantie();
+       /* Garantie garantie6 = new Garantie();
         garantie6.setLibelle("Rachat de vetuste");
         garantie6.setCodeGarantie("12");
         garantie6.setCodeExtensionGarantie("23");
@@ -181,10 +181,13 @@ public class TarifsRCController {
         garantie6.setObligatoire(false);
         garantie6.setOptionnelle(true);
         garantie6.setMinimal(false);
-        garantie6.setOrdre(12);
+        garantie6.setOrdre(12);*/
 
-        offer.setGaranties(Arrays.asList(garantie1, garantie2, garantie3, garantie4, garantie5, garantie6));
+        offer.setGaranties(Arrays.asList(garantie1, garantie2,/* garantie3, garantie4,*/ garantie5));
         offer.setNombreExtincteur("0");
-        return ResponseEntity.ok(offer);
+        Offre[] off = new Offre[1];
+        off[0] = offer;
+
+        return ResponseEntity.ok(off);
     }
 }
