@@ -49,7 +49,8 @@ public class TarifsRCController {
         offer.setId(237);
         offer.setLibelle("RC");
         offer.setPrimeNetHT(3060.3);
-        offer.setPrimeTotalTTC(3600.06);
+        double forfait = tarifsRCService.calculateTarif(payload);
+        offer.setPrimeTotalTTC(forfait);
         offer.setTaxes(472.16);
         offer.setTaxeParafiscal(30.6);
         offer.setTaxesProrata(472.16);
@@ -81,6 +82,7 @@ public class TarifsRCController {
         garantie1.setCodeGarantie("1");
         garantie1.setPrimeAnnuelle(2914.8);
         garantie1.setPrimeAuProrata(2914.8);
+        garantie1.setIdOptionGarantie("null");
         garantie1.setIncluded(true);
         garantie1.setObligatoire(true);
         garantie1.setOptionnelle(false);
@@ -107,6 +109,7 @@ public class TarifsRCController {
         garantie2.setPrimeAnnuelle(102.02);
         garantie2.setPrimeAuProrata(102.02);
         garantie2.setIncluded(true);
+        garantie2.setIdOptionGarantie("null");
         garantie2.setObligatoire(true);
         garantie2.setOptionnelle(false);
         garantie2.setOrdre(1);
@@ -138,6 +141,7 @@ public class TarifsRCController {
         Garantie garantie4 = new Garantie();
         garantie4.setLibelle("PCA");
         garantie4.setCodeGarantie("7");
+        garantie4.setIdOptionGarantie("null");
         garantie4.setIncluded(false);
         garantie4.setObligatoire(false);
         garantie4.setOptionnelle(true);

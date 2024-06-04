@@ -1,33 +1,64 @@
 package com.mockyBack.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+//@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Garantie {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String libelle;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String codeGarantie;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double primeAnnuelle;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double primeAuProrata;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String idOptionGarantie;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Boolean included;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Boolean obligatoire;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Boolean optionnelle;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer ordre;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double taxeGarantieProrata;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double taxeParafiscalProrata;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double taxeGarantieAnnuelle;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double taxeParafiscalAnnuelle;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double commission;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double taxeCommission;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double commissionProrata;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double taxeCommissionProrata;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double commissionAnnuelle;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double taxeCommissionAnnuelle;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double taxeGarantie;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double taxeParafiscal;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double majorationBL;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String etat;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String franchise;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String capitalGarantie;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String codeExtensionGarantie;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Boolean minimal;
+
 
     public String getLibelle() {
         return libelle;
