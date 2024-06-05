@@ -107,7 +107,7 @@ public class TarifsRCController {
         garantie2.setFranchise("10.0");
         garantie2.setCodeGarantie("17");
         garantie2.setPrimeAnnuelle(102.02);
-        garantie2.setPrimeAuProrata(102.02);
+        garantie2.setPrimeAuProrata(99.02);
         garantie2.setIncluded(true);
         garantie2.setIdOptionGarantie("null");
         garantie2.setObligatoire(true);
@@ -155,8 +155,8 @@ public class TarifsRCController {
         garantie5.setPrimeAuProrata(43.48);
         garantie5.setCodeExtensionGarantie("37");
         garantie5.setIncluded(true);
-        garantie5.setObligatoire(true);
-        garantie5.setOptionnelle(false);
+        garantie5.setObligatoire(false);
+        garantie5.setOptionnelle(true);
         garantie5.setOrdre(11);
         garantie5.setTaxeGarantieProrata(6.09);
         garantie5.setTaxeParafiscalProrata(0.43);
