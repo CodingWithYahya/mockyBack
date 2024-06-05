@@ -44,7 +44,7 @@ public class TarifsRCController {
         return ResponseEntity.ok(new String[0]);
     }
     @PostMapping("/offres")
-    public ResponseEntity<Offre[]>  offre(@RequestBody ChapeauPayload payload){
+    public ResponseEntity<List<Offre>>  offre(@RequestBody ChapeauPayload payload){
         Offre offer = new Offre();
         offer.setId(237);
         offer.setLibelle("RC");
@@ -155,8 +155,8 @@ public class TarifsRCController {
         garantie5.setPrimeAuProrata(43.48);
         garantie5.setCodeExtensionGarantie("37");
         garantie5.setIncluded(true);
-        garantie5.setObligatoire(false);
-        garantie5.setOptionnelle(true);
+        garantie5.setObligatoire(true);
+        garantie5.setOptionnelle(false);
         garantie5.setOrdre(11);
         garantie5.setTaxeGarantieProrata(6.09);
         garantie5.setTaxeParafiscalProrata(0.43);
@@ -185,9 +185,6 @@ public class TarifsRCController {
 
         offer.setGaranties(Arrays.asList(garantie1, garantie2,/* garantie3, garantie4,*/ garantie5));
         offer.setNombreExtincteur("0");
-        Offre[] off = new Offre[1];
-        off[0] = offer;
-
-        return ResponseEntity.ok(off);
+        return ResponseEntity.ok(Arrays.asList(offer));
     }
 }
