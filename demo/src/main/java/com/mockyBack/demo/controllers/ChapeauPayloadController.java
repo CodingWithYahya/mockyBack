@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/disasterRecovery/handlingPayload")
+@RequestMapping("/api/disasterRecovery/handlingChapeauPayload")
 public class ChapeauPayloadController {
 
     @Autowired
