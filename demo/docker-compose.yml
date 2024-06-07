@@ -40,3 +40,18 @@ services:
       SPRING_JPA_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQLDialect
     depends_on:
       - mocky_db
+
+  mocky_node_app:
+    container_name: mocky_node_app_container
+    image: mockynodeapp:latest
+    restart: always
+    build:
+      context: C:\Users\S0001413\Desktop\PFE\mocky\Dockerfile
+      dockerfile: Dockerfile
+    ports:
+      - "3333:3333"
+    environment:
+      - NODE_ENV=production
+      - PORT=3333
+    volumes:
+      - ./mocky_node_app:/usr/src/app
