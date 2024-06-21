@@ -1,4 +1,7 @@
 package com.mockyBack.demo.entities;
+
+
+
 import javax.persistence.*;
 
 @Entity
@@ -6,6 +9,7 @@ import javax.persistence.*;
 public class ChapeauPayload {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idObjetFromCh")
     private int idObjetFromCh;
 
     @Column(name = "type_client")
@@ -269,7 +273,6 @@ public class ChapeauPayload {
 
     @Column(name = "valeur_venale")
     private String valeurVenale;
-
     @Column(name = "vehicule_agarage")
     private String vehiculeAgarage;
 
@@ -372,9 +375,222 @@ public class ChapeauPayload {
     private String conducteurUpdated;
     @Column(name = "conducteurSecondaireUpdated")
     private String conducteurSecondaireUpdated;
+//    @Embedded
+//    private AdditionalFields additionalFields;
+//
+//    public AdditionalFields getAdditionalFields() {
+//        return additionalFields;
+//    }
+//
+//    public void setAdditionalFields(AdditionalFields additionalFields) {
+//        this.additionalFields = additionalFields;
+//    }
+
+
+//    // nothingHere🚀
+//    @JsonInclude(JsonInclude.Include.NON_NULL)
+//    @Column(name = "date_mise_en_circulation")
+//    private String dateMiseEnCirculation;
+//    @JsonInclude(JsonInclude.Include.NON_NULL)
+//    @Column(name = "heure_mise_en_circulation")
+//    private String heureMiseEnCirculation;
+//    // nothingHere🚀
+//    @JsonInclude(JsonInclude.Include.NON_NULL)
+//    @Column(name = "id_tarif")
+//    private Integer idTarif;
+//    @JsonInclude(JsonInclude.Include.NON_NULL)
+//    @Column(name = "active_garanties")
+//    private ActiveGaranty[] activeGaranties;
+//    @JsonInclude(JsonInclude.Include.NON_NULL)
+//    @Column(name = "remorques")
+//    private Remorque[] remorques;
+
+    /*
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "chapeau_payload_id")
+    private List<GarantieOff> activeGaranties;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "chapeau_payload_id")
+    private List<Remorque> remorques;
+    */
 
     public ChapeauPayload() {
     }
+
+//    public ChapeauPayload(int idObjetFromCh, String typeClient, String nomOrRaisonSociale, String prenom, String titreCivilite, String typePieceIdentite, String numeroPieceIdentite, String sexe, String situationFamiliale, String telephone, String email, String profession, String adresse, String dateNaissance, String idVilleAdresse, String numeroPermis, String dateObtentionPermis, String idPaysPermis, String numeroICE, String activite, String secteur, String gsm, String categoriePermis, String nombreEnfant, String clientConducteur, String numeroClient, String typeClientTiersSouscripteur, String codeIntermediaireTiersSouscripteur, String avecReductionSaharienne, String gsmConducteur, String numeroPieceIdentiteConducteur, String adresseConducteur, String telephoneConducteur, String emailConducteur, String nomOrRaisonSocialeConducteur, String prenomConducteur, String sexeConducteur, String situationFamilialeConducteur, String dateNaissanceConducteur, String idVilleAdresseConducteur, String idPaysPermisConducteur, String paysPermisConducteur, String professionConducteur, String titreCiviliteConducteur, String numeroPermisConducteur, String dateObtentionPermisConducteur, String categoriePermisConducteur, String typePieceIdentiteConducteur, String typeConducteur, String numeroClientConducteur, String typeClientTiersConducteur, String codeIntermediaireTiersConducteur, String gsmConducteurSecondaire, String numeroPieceIdentiteConducteurSecondaire, String adresseConducteurSecondaire, String telephoneConducteurSecondaire, String emailConducteurSecondaire, String nomOrRaisonSocialeConducteurSecondaire, String prenomConducteurSecondaire, String sexeConducteurSecondaire, String situationFamilialeConducteurSecondaire, String dateNaissanceConducteurSecondaire, String idVilleAdresseConducteurSecondaire, String idPaysPermisConducteurSecondaire, String professionConducteurSecondaire, String titreCiviliteConducteurSecondaire, String numeroPermisConducteurSecondaire, String dateObtentionPermisConducteurSecondaire, String categoriePermisConducteurSecondaire, String typePieceIdentiteConducteurSecondaire, String numeroClientConducteurSecondaire, String typeClientTiersConducteurSecondaire, String codeIntermediaireTiersConducteurSecondaire, String codeUsageVehicule, String idGenre, String typeImmatriculation, String immatriculation, String tauxCRM, String crmManuel, String crmFMSAR, String avecCrmManuel, String marque, String modele, String carburant, int puissanceFiscale, String nombrePlace, int nombreRemorquesTractes, String valeurANeuf, String valeurVenale, String vehiculeAgarage, int ptc, String referenceCRMFMSAR, String avecDelegation, String avecBaremeConventionnel, String numeroChassis, String numeroCadre, String numeroMoteur, String avecAutreImmatriculation, String avecModificationNarsa, String avecErreurNarsa, String avecAntivole, String natureContrat, String dateEffet, String heureEffet, String dateEcheance, String heureEcheance, String dateEvenement, String heureEvenement, String duree, int dureeContratEnJour, String dateEffetInitiale, String dateEtablissement, String modePaiement, String numeroAttestation, String formatAttestation, int typeContrat, String typeCouverture, String numeroAttestationProvisoire, int idIntermediaire, String typeEvenement, String idProduit, String numeroDevis, String souscripteurUpdated, String conducteurUpdated, String conducteurSecondaireUpdated, String dateMiseEnCirculation, String heureMiseEnCirculation, Integer idTarif, ActiveGaranty[] activeGaranties, Remorque[] remorques) {
+//        this.idObjetFromCh = idObjetFromCh;
+//        this.typeClient = typeClient;
+//        this.nomOrRaisonSociale = nomOrRaisonSociale;
+//        this.prenom = prenom;
+//        this.titreCivilite = titreCivilite;
+//        this.typePieceIdentite = typePieceIdentite;
+//        this.numeroPieceIdentite = numeroPieceIdentite;
+//        this.sexe = sexe;
+//        this.situationFamiliale = situationFamiliale;
+//        this.telephone = telephone;
+//        this.email = email;
+//        this.profession = profession;
+//        this.adresse = adresse;
+//        this.dateNaissance = dateNaissance;
+//        this.idVilleAdresse = idVilleAdresse;
+//        this.numeroPermis = numeroPermis;
+//        this.dateObtentionPermis = dateObtentionPermis;
+//        this.idPaysPermis = idPaysPermis;
+//        this.numeroICE = numeroICE;
+//        this.activite = activite;
+//        this.secteur = secteur;
+//        this.gsm = gsm;
+//        this.categoriePermis = categoriePermis;
+//        this.nombreEnfant = nombreEnfant;
+//        this.clientConducteur = clientConducteur;
+//        this.numeroClient = numeroClient;
+//        this.typeClientTiersSouscripteur = typeClientTiersSouscripteur;
+//        this.codeIntermediaireTiersSouscripteur = codeIntermediaireTiersSouscripteur;
+//        this.avecReductionSaharienne = avecReductionSaharienne;
+//        this.gsmConducteur = gsmConducteur;
+//        this.numeroPieceIdentiteConducteur = numeroPieceIdentiteConducteur;
+//        this.adresseConducteur = adresseConducteur;
+//        this.telephoneConducteur = telephoneConducteur;
+//        this.emailConducteur = emailConducteur;
+//        this.nomOrRaisonSocialeConducteur = nomOrRaisonSocialeConducteur;
+//        this.prenomConducteur = prenomConducteur;
+//        this.sexeConducteur = sexeConducteur;
+//        this.situationFamilialeConducteur = situationFamilialeConducteur;
+//        this.dateNaissanceConducteur = dateNaissanceConducteur;
+//        this.idVilleAdresseConducteur = idVilleAdresseConducteur;
+//        this.idPaysPermisConducteur = idPaysPermisConducteur;
+//        this.paysPermisConducteur = paysPermisConducteur;
+//        this.professionConducteur = professionConducteur;
+//        this.titreCiviliteConducteur = titreCiviliteConducteur;
+//        this.numeroPermisConducteur = numeroPermisConducteur;
+//        this.dateObtentionPermisConducteur = dateObtentionPermisConducteur;
+//        this.categoriePermisConducteur = categoriePermisConducteur;
+//        this.typePieceIdentiteConducteur = typePieceIdentiteConducteur;
+//        this.typeConducteur = typeConducteur;
+//        this.numeroClientConducteur = numeroClientConducteur;
+//        this.typeClientTiersConducteur = typeClientTiersConducteur;
+//        this.codeIntermediaireTiersConducteur = codeIntermediaireTiersConducteur;
+//        this.gsmConducteurSecondaire = gsmConducteurSecondaire;
+//        this.numeroPieceIdentiteConducteurSecondaire = numeroPieceIdentiteConducteurSecondaire;
+//        this.adresseConducteurSecondaire = adresseConducteurSecondaire;
+//        this.telephoneConducteurSecondaire = telephoneConducteurSecondaire;
+//        this.emailConducteurSecondaire = emailConducteurSecondaire;
+//        this.nomOrRaisonSocialeConducteurSecondaire = nomOrRaisonSocialeConducteurSecondaire;
+//        this.prenomConducteurSecondaire = prenomConducteurSecondaire;
+//        this.sexeConducteurSecondaire = sexeConducteurSecondaire;
+//        this.situationFamilialeConducteurSecondaire = situationFamilialeConducteurSecondaire;
+//        this.dateNaissanceConducteurSecondaire = dateNaissanceConducteurSecondaire;
+//        this.idVilleAdresseConducteurSecondaire = idVilleAdresseConducteurSecondaire;
+//        this.idPaysPermisConducteurSecondaire = idPaysPermisConducteurSecondaire;
+//        this.professionConducteurSecondaire = professionConducteurSecondaire;
+//        this.titreCiviliteConducteurSecondaire = titreCiviliteConducteurSecondaire;
+//        this.numeroPermisConducteurSecondaire = numeroPermisConducteurSecondaire;
+//        this.dateObtentionPermisConducteurSecondaire = dateObtentionPermisConducteurSecondaire;
+//        this.categoriePermisConducteurSecondaire = categoriePermisConducteurSecondaire;
+//        this.typePieceIdentiteConducteurSecondaire = typePieceIdentiteConducteurSecondaire;
+//        this.numeroClientConducteurSecondaire = numeroClientConducteurSecondaire;
+//        this.typeClientTiersConducteurSecondaire = typeClientTiersConducteurSecondaire;
+//        this.codeIntermediaireTiersConducteurSecondaire = codeIntermediaireTiersConducteurSecondaire;
+//        this.codeUsageVehicule = codeUsageVehicule;
+//        this.idGenre = idGenre;
+//        this.typeImmatriculation = typeImmatriculation;
+//        this.immatriculation = immatriculation;
+//        this.tauxCRM = tauxCRM;
+//        this.crmManuel = crmManuel;
+//        this.crmFMSAR = crmFMSAR;
+//        this.avecCrmManuel = avecCrmManuel;
+//        this.marque = marque;
+//        this.modele = modele;
+//        this.carburant = carburant;
+//        this.puissanceFiscale = puissanceFiscale;
+//        this.nombrePlace = nombrePlace;
+//        this.nombreRemorquesTractes = nombreRemorquesTractes;
+//        this.valeurANeuf = valeurANeuf;
+//        this.valeurVenale = valeurVenale;
+//        this.vehiculeAgarage = vehiculeAgarage;
+//        this.ptc = ptc;
+//        this.referenceCRMFMSAR = referenceCRMFMSAR;
+//        this.avecDelegation = avecDelegation;
+//        this.avecBaremeConventionnel = avecBaremeConventionnel;
+//        this.numeroChassis = numeroChassis;
+//        this.numeroCadre = numeroCadre;
+//        this.numeroMoteur = numeroMoteur;
+//        this.avecAutreImmatriculation = avecAutreImmatriculation;
+//        this.avecModificationNarsa = avecModificationNarsa;
+//        this.avecErreurNarsa = avecErreurNarsa;
+//        this.avecAntivole = avecAntivole;
+//        this.natureContrat = natureContrat;
+//        this.dateEffet = dateEffet;
+//        this.heureEffet = heureEffet;
+//        this.dateEcheance = dateEcheance;
+//        this.heureEcheance = heureEcheance;
+//        this.dateEvenement = dateEvenement;
+//        this.heureEvenement = heureEvenement;
+//        this.duree = duree;
+//        this.dureeContratEnJour = dureeContratEnJour;
+//        this.dateEffetInitiale = dateEffetInitiale;
+//        this.dateEtablissement = dateEtablissement;
+//        this.modePaiement = modePaiement;
+//        this.numeroAttestation = numeroAttestation;
+//        this.formatAttestation = formatAttestation;
+//        this.typeContrat = typeContrat;
+//        this.typeCouverture = typeCouverture;
+//        this.numeroAttestationProvisoire = numeroAttestationProvisoire;
+//        this.idIntermediaire = idIntermediaire;
+//        this.typeEvenement = typeEvenement;
+//        this.idProduit = idProduit;
+//        this.numeroDevis = numeroDevis;
+//        this.souscripteurUpdated = souscripteurUpdated;
+//        this.conducteurUpdated = conducteurUpdated;
+//        this.conducteurSecondaireUpdated = conducteurSecondaireUpdated;
+//        this.dateMiseEnCirculation = dateMiseEnCirculation;
+//        this.heureMiseEnCirculation = heureMiseEnCirculation;
+//        this.idTarif = idTarif;
+//        this.activeGaranties = activeGaranties;
+//        this.remorques = remorques;
+//    }
+//
+//    public String getDateMiseEnCirculation() {
+//        return dateMiseEnCirculation;
+//    }
+//
+//    public void setDateMiseEnCirculation(String dateMiseEnCirculation) {
+//        this.dateMiseEnCirculation = dateMiseEnCirculation;
+//    }
+//
+//    public String getHeureMiseEnCirculation() {
+//        return heureMiseEnCirculation;
+//    }
+//
+//    public void setHeureMiseEnCirculation(String heureMiseEnCirculation) {
+//        this.heureMiseEnCirculation = heureMiseEnCirculation;
+//    }
+//
+//    public Integer getIdTarif() {
+//        return idTarif;
+//    }
+//
+//    public void setIdTarif(Integer idTarif) {
+//        this.idTarif = idTarif;
+//    }
+//
+//    public ActiveGaranty[] getActiveGaranties() {
+//        return activeGaranties;
+//    }
+//
+//    public void setActiveGaranties(ActiveGaranty[] activeGaranties) {
+//        this.activeGaranties = activeGaranties;
+//    }
+//
+//    public Remorque[] getRemorques() {
+//        return remorques;
+//    }
+//
+//    public void setRemorques(Remorque[] remorques) {
+//        this.remorques = remorques;
+//    }
 
     public ChapeauPayload(int idObjetFromCh, String typeClient, String nomOrRaisonSociale, String prenom, String titreCivilite, String typePieceIdentite, String numeroPieceIdentite, String sexe, String situationFamiliale, String telephone, String email, String profession, String adresse, String dateNaissance, String idVilleAdresse, String numeroPermis, String dateObtentionPermis, String idPaysPermis, String numeroICE, String activite, String secteur, String gsm, String categoriePermis, String nombreEnfant, String clientConducteur, String numeroClient, String typeClientTiersSouscripteur, String codeIntermediaireTiersSouscripteur, String avecReductionSaharienne, String gsmConducteur, String numeroPieceIdentiteConducteur, String adresseConducteur, String telephoneConducteur, String emailConducteur, String nomOrRaisonSocialeConducteur, String prenomConducteur, String sexeConducteur, String situationFamilialeConducteur, String dateNaissanceConducteur, String idVilleAdresseConducteur, String idPaysPermisConducteur, String paysPermisConducteur, String professionConducteur, String titreCiviliteConducteur, String numeroPermisConducteur, String dateObtentionPermisConducteur, String categoriePermisConducteur, String typePieceIdentiteConducteur, String typeConducteur, String numeroClientConducteur, String typeClientTiersConducteur, String codeIntermediaireTiersConducteur, String gsmConducteurSecondaire, String numeroPieceIdentiteConducteurSecondaire, String adresseConducteurSecondaire, String telephoneConducteurSecondaire, String emailConducteurSecondaire, String nomOrRaisonSocialeConducteurSecondaire, String prenomConducteurSecondaire, String sexeConducteurSecondaire, String situationFamilialeConducteurSecondaire, String dateNaissanceConducteurSecondaire, String idVilleAdresseConducteurSecondaire, String idPaysPermisConducteurSecondaire, String professionConducteurSecondaire, String titreCiviliteConducteurSecondaire, String numeroPermisConducteurSecondaire, String dateObtentionPermisConducteurSecondaire, String categoriePermisConducteurSecondaire, String typePieceIdentiteConducteurSecondaire, String numeroClientConducteurSecondaire, String typeClientTiersConducteurSecondaire, String codeIntermediaireTiersConducteurSecondaire, String codeUsageVehicule, String idGenre, String typeImmatriculation, String immatriculation, String tauxCRM, String crmManuel, String crmFMSAR, String avecCrmManuel, String marque, String modele, String carburant, int puissanceFiscale, String nombrePlace, int nombreRemorquesTractes, String valeurANeuf, String valeurVenale, String vehiculeAgarage, int ptc, String referenceCRMFMSAR, String avecDelegation, String avecBaremeConventionnel, String numeroChassis, String numeroCadre, String numeroMoteur, String avecAutreImmatriculation, String avecModificationNarsa, String avecErreurNarsa, String avecAntivole, String natureContrat, String dateEffet, String heureEffet, String dateEcheance, String heureEcheance, String dateEvenement, String heureEvenement, String duree, int dureeContratEnJour, String dateEffetInitiale, String dateEtablissement, String modePaiement, String numeroAttestation, String formatAttestation, int typeContrat, String typeCouverture, String numeroAttestationProvisoire, int idIntermediaire, String typeEvenement, String idProduit, String numeroDevis, String souscripteurUpdated, String conducteurUpdated, String conducteurSecondaireUpdated) {
         this.idObjetFromCh = idObjetFromCh;
@@ -503,6 +719,46 @@ public class ChapeauPayload {
         this.conducteurUpdated = conducteurUpdated;
         this.conducteurSecondaireUpdated = conducteurSecondaireUpdated;
     }
+
+//    public String getDateMiseEnCirculation() {
+//        return dateMiseEnCirculation;
+//    }
+//
+//    public void setDateMiseEnCirculation(String dateMiseEnCirculation) {
+//        this.dateMiseEnCirculation = dateMiseEnCirculation;
+//    }
+//
+//    public String getHeureMiseEnCirculation() {
+//        return heureMiseEnCirculation;
+//    }
+//
+//    public void setHeureMiseEnCirculation(String heureMiseEnCirculation) {
+//        this.heureMiseEnCirculation = heureMiseEnCirculation;
+//    }
+//
+//    public Integer getIdTarif() {
+//        return idTarif;
+//    }
+//
+//    public void setIdTarif(Integer idTarif) {
+//        this.idTarif = idTarif;
+//    }
+
+//    public List<GarantieOff> getActiveGaranties() {
+//        return activeGaranties;
+//    }
+//
+//    public void setActiveGaranties(List<GarantieOff> activeGaranties) {
+//        this.activeGaranties = activeGaranties;
+//    }
+//
+//    public List<Remorque> getRemorques() {
+//        return remorques;
+//    }
+//
+//    public void setRemorques(List<Remorque> remorques) {
+//        this.remorques = remorques;
+//    }
 
     public int getIdObjetFromCh() {
         return idObjetFromCh;

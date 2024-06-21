@@ -49,29 +49,29 @@ public class TarifsRCService {
         return prime != null ? prime : 0.0;
     }
 
-    public double calculatePrime(ChapeauPayload data){
-        //List<TarifsRC> plans = chapeauPayloadService.getCleanData();
-        List<TarifsRC> plans = tarifsRCRepository.findAll();
-        int codeUsage = Integer.parseInt(data.getCodeUsageVehicule());
-        int carburant = Integer.parseInt(data.getCarburant());
-        System.out.println(data.getPtc() + "PTC   :");
-        for (TarifsRC plan : plans) {
-            System.out.println(data);
-            if (plan.getCodeUsageVehiculeMin() <= codeUsage && codeUsage<=plan.getCodeUsageVehiculeMax()
-            && plan.getCarburantMin() <= carburant &&
-                    carburant <= plan.getCarburantMax() &&
-                    plan.getPuissanceFiscaleMin() <= data.getPuissanceFiscale() &&
-                    data.getPuissanceFiscale() <= plan.getPuissanceFiscaleMax() &&
-                    plan.getPtcMin() <= data.getPtc() &&
-                    data.getPtc() <= plan.getPtcMax()
-            ){
-                double forfait = plan.getForfait();
-                if (data.getNombreRemorquesTractes() == 1) {
-                    forfait += forfait * plan.getTauxMajorationRemorque() / 100;
-                }
-                return forfait;
-            }
-        }
-        return 0.0;
-    }
+//    public double calculatePrime(ChapeauPayload data){
+//        //List<TarifsRC> plans = chapeauPayloadService.getCleanData();
+//        List<TarifsRC> plans = tarifsRCRepository.findAll();
+//        int codeUsage = Integer.parseInt(data.getCodeUsageVehicule());
+//        int carburant = Integer.parseInt(data.getCarburant());
+//        System.out.println(data.getPtc() + "PTC   :");
+//        for (TarifsRC plan : plans) {
+//            System.out.println(data);
+//            if (plan.getCodeUsageVehiculeMin() <= codeUsage && codeUsage<=plan.getCodeUsageVehiculeMax()
+//            && plan.getCarburantMin() <= carburant &&
+//                    carburant <= plan.getCarburantMax() &&
+//                    plan.getPuissanceFiscaleMin() <= data.getPuissanceFiscale() &&
+//                    data.getPuissanceFiscale() <= plan.getPuissanceFiscaleMax() &&
+//                    plan.getPtcMin() <= data.getPtc() &&
+//                    data.getPtc() <= plan.getPtcMax()
+//            ){
+//                double forfait = plan.getForfait();
+//                if (data.getNombreRemorquesTractes() == 1) {
+//                    forfait += forfait * plan.getTauxMajorationRemorque() / 100;
+//                }
+//                return forfait;
+//            }
+//        }
+//        return 0.0;
+//    }
 }
