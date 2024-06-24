@@ -10,20 +10,7 @@ spring:
       max-file-size: 10MB
       max-request-size: 10MB
 
-# FromHere
-  datasource:
-    url: jdbc:postgresql://localhost:5432/mockydb
-    username: mockyuser
-    password: mockypassword
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    hibernate:
-      ddl-auto: create-drop #update
-    show-sql: true
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-# FromHere
+
 
 logging:
   level:
